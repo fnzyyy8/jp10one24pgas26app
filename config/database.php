@@ -114,6 +114,22 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
+        'pulse' => [
+            'driver' => 'mysql',
+            'host' => env('PULSE_DB_HOST', '127.0.0.1'),
+            'port' => env('PULSE_DB_PORT', '3307'),
+            'database' => env('PULSE_DB_DATABASE', 'jargas_pulse'),
+            'username' => env('PULSE_DB_USERNAME', 'pulse_user'),
+            'password' => env('PULSE_DB_PASSWORD', ''),
+            'unix_socket' => '',
+            'charset' => env('DB_CHARSET', 'utf8mb4'),
+            'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+        ],
+
     ],
 
     /*

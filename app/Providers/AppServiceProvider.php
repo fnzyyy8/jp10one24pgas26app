@@ -9,6 +9,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
 use Inertia\ExceptionResponse;
 use Inertia\Inertia;
+use App\Models\Auth\User;
+use Illuminate\Support\Facades\Gate;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -35,6 +37,10 @@ class AppServiceProvider extends ServiceProvider
             return $response;
         });
         $this->configureDefaults();
+
+        Gate::define('viewPulse', function (User $user): bool {
+            return $user->role === 'super_admin';
+        });
     }
 
     /**

@@ -11,6 +11,80 @@
  */
 
 
+namespace App\Models\Auth{
+/**
+ * @property int $id
+ * @property int $user_id
+ * @property string $name
+ * @property string $type
+ * @property string $signature_path
+ * @property string|null $original_filename
+ * @property string $mime_type
+ * @property int $file_size
+ * @property bool $is_default
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read \App\Models\Auth\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Signature newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Signature newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Signature query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Signature whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Signature whereFileSize($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Signature whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Signature whereIsDefault($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Signature whereMimeType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Signature whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Signature whereOriginalFilename($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Signature whereSignaturePath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Signature whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Signature whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Signature whereUserId($value)
+ */
+	class Signature extends \Eloquent {}
+}
+
+namespace App\Models\Auth{
+/**
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property Carbon|null $email_verified_at
+ * @property string $password
+ * @property string|null $remember_token
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
+ * @property-read int|null $notifications_count
+ * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereEmailVerifiedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedAt($value)
+ * @property string $division
+ * @property string $position
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereDivision($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePosition($value)
+ * @mixin \Eloquent
+ * @property string $role
+ * @property int|null $verified_by
+ * @property \Carbon\CarbonImmutable|null $verified_at
+ * @property bool $is_active
+ * @property-read User|null $verifier
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereRole($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereVerifiedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereVerifiedBy($value)
+ */
+	class User extends \Eloquent {}
+}
+
 namespace App\Models\Engineering\ItemDetail{
 /**
  * @property int $id
@@ -199,6 +273,84 @@ namespace App\Models\Engineering\PriceList{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|UnitPrice whereUpdatedAt($value)
  */
 	class UnitPrice extends \Eloquent {}
+}
+
+namespace App\Models\ManPower{
+/**
+ * @property int $id
+ * @property string $name
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ManPower\Worker> $workers
+ * @property-read int|null $workers_count
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WorkScope newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WorkScope newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WorkScope query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WorkScope whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WorkScope whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WorkScope whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WorkScope whereUpdatedAt($value)
+ */
+	class WorkScope extends \Eloquent {}
+}
+
+namespace App\Models\ManPower{
+/**
+ * @property int $id
+ * @property string $id_card_number
+ * @property string $name
+ * @property string $based
+ * @property string $phone_number
+ * @property string $email
+ * @property string|null $photo
+ * @property string $work_status
+ * @property string|null $last_follow_up
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ManPower\WorkerCertificate> $certificates
+ * @property-read int|null $certificates_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ManPower\WorkScope> $workScopes
+ * @property-read int|null $work_scopes_count
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Worker newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Worker newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Worker query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Worker whereBased($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Worker whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Worker whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Worker whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Worker whereIdCardNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Worker whereLastFollowUp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Worker whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Worker wherePhoneNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Worker wherePhoto($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Worker whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Worker whereWorkStatus($value)
+ */
+	class Worker extends \Eloquent {}
+}
+
+namespace App\Models\ManPower{
+/**
+ * @property int $id
+ * @property int $worker_id
+ * @property string $certificate_name
+ * @property \Carbon\CarbonImmutable|null $expired_date
+ * @property string|null $document_path
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property-read \App\Models\ManPower\Worker $worker
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WorkerCertificate newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WorkerCertificate newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WorkerCertificate query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WorkerCertificate whereCertificateName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WorkerCertificate whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WorkerCertificate whereDocumentPath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WorkerCertificate whereExpiredDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WorkerCertificate whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WorkerCertificate whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WorkerCertificate whereWorkerId($value)
+ */
+	class WorkerCertificate extends \Eloquent {}
 }
 
 namespace App\Models\ProjectControl{
